@@ -1,0 +1,7 @@
+{
+  "name": "Upx-5Sem",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

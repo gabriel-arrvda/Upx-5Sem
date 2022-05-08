@@ -1,3 +1,37 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  
+  <ion-footer>
+    <div class="cut-top"></div>
+  
+    <div class="cut-btn">
+      <div class="btn-back">
+        <div class="btn-front">
+          <ion-icon name="camera"></ion-icon>
+        </div>
+      </div>
+    </div>
+  
+    <div class="btn-wrapper">
+      <div class="nav-btn" routerLink="/home" routerLinkActive #rtl="routerLinkActive">
+        <ng-container *ngIf="rtl.isActive">
+          <ion-icon name="home"></ion-icon>
+        </ng-container>
+  
+        <ng-container *ngIf="!rtl.isActive">
+          <ion-icon name="home-outline"></ion-icon>
+        </ng-container>
+      </div>
+  
+      <div class="nav-btn" routerLink="/configs" routerLinkActive #rtl2="routerLinkActive">
+        <ng-container *ngIf="rtl2.isActive">
+          <ion-icon name="documents"></ion-icon>
+        </ng-container>
+  
+        <ng-container *ngIf="!rtl2.isActive">
+          <ion-icon name="documents-outline"></ion-icon>
+        </ng-container>
+      </div>
+    </div>
+  </ion-footer>
 </ion-app>

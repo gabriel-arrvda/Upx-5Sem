@@ -25,21 +25,3 @@
 #container a {
   text-decoration: none;
 }
-
-ion-header{
-  ion-toolbar{
-      --background: #ccc;
-      padding: 2vh 5vw;
-      text-align: center;
-      color: var(--ion-color-primary);
-
-      ion-title{
-      font-size: 2.5vh;
-      font-weight: bold;
-      }
-
-      ion-icon{
-      font-size: 4vh;
-      }
-  }
-}

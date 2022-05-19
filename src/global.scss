@@ -26,3 +26,25 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap');
+
+ion-header{
+    ion-toolbar{
+        --background: #ccc;
+        padding: 2vh 5vw;
+        text-align: center;
+        color: var(--ion-color-primary);
+  
+        ion-title{
+            font-size: 2.5vh;
+            font-weight: bold;
+        }
+  
+        ion-icon{
+            font-size: 4vh;
+        }
+    }
+}
+
+ion-content{
+    --padding-top: 3vh
+}

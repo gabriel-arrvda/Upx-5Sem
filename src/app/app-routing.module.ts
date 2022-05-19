@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'configs',
+    loadChildren: () => import('./options/options.module').then( m => m.OptionsPageModule)
+  },
 ];
 
 @NgModule({

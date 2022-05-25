@@ -1,27 +1,64 @@
-#container {
+.card-data{
+  background-color: #ccc;
+  height: auto;
+  margin: 10px 16px; 
+  border-radius: 2vh;   
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh;
   text-align: center;
+  gap: 2vh;
+  padding: 3vh 3vw;
+  border-left: 1.5vw solid black;
+  font-size: 1.7vh;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  color: var(--ion-color-primary);
+  box-shadow:
+      0px 0px 0.4px rgba(0, 0, 0, 0.02),
+      0px 0px 0.6px rgba(0, 0, 0, 0.028),
+      0px 0px 0.6px rgba(0, 0, 0, 0.035),
+      0px 0px 1px rgba(0, 0, 0, 0.042),
+      0px 0px 3px rgba(0, 0, 0, 0.05),
+      0px 0px 25px rgba(0, 0, 0, 0.07);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+.col{
+  width: 100%;
+  font-size: 1.5vh;
+  flex-shrink: 3;
+  font-weight: 600;
+  align-items: center;
+  display: flex;
+  align-content: center;
+  justify-content: space-between; 
+  flex-direction: column;
+  gap: 1vh;
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+  img{
+      object-fit: cover;
+      border-radius: 50%;
+      height: 80%;
+      width: 80%;
+      outline-offset: 4px;
+      outline: 2px solid var(--ion-color-primary);
+  }
 
-  color: #8c8c8c;
+  .lead{
+      font-size: 1.3vh;
+      font-weight: 600;
+      color: rgb(105, 105, 105)
+  }
 
-  margin: 0;
-}
+  .info{
+      font-size: 1.3vh;
+      font-weight: 500;
+      color: rgb(105, 105, 105)
+  }
 
-#container a {
-  text-decoration: none;
+  .body{
+      font-size: 1.8vh;
+      font-weight: 600;
+  }
 }

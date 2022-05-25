@@ -9,6 +9,7 @@ import { OptionsPageRoutingModule } from './options-routing.module';
 import { OptionsPage } from './options.page';
 import { ProdutosPageComponent } from './produtos-page/produtos-page.component';
 import { ProdutosFormComponent } from './produtos-form/produtos-form.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ProdutosFormComponent } from './produtos-form/produtos-form.component';
     FormsModule,
     IonicModule,
     OptionsPageRoutingModule,
+    SharedModule
   ],
   declarations: [
     OptionsPage, 

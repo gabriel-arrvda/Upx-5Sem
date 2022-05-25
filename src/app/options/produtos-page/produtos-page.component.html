@@ -3,7 +3,7 @@
     <ion-buttons (click)="back()" slot="start">
       <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-buttons>
-    <ion-buttons slot="end">
+    <ion-buttons (click)="presentModal()" slot="end">
       <ion-icon name="add-outline"></ion-icon>
     </ion-buttons>
     <ion-title>Produtos</ion-title>
@@ -12,8 +12,19 @@
 
 <ion-content>
   <div class="card-data">
-    <div class="data">teste</div>
-    <div class="desc">teste</div>
-    <div class="value">teste</div>
+    <div class="col" style="width: 25% !important;"><img src="../../../assets/no-image.jpg" alt=""></div>
+    <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
+      <div class="lead">CAMISETA</div>
+      <div class="body">Camiseta Azul Nike</div>
+      <div class="info">123456789 - Tamanho G</div>
+    </div>
+  </div>
+  <div class="card-data">
+    <div class="col" style="width: 25% !important;"><img src="../../../assets/no-image.jpg" alt=""></div>
+    <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
+      <div class="lead">CAMISETA</div>
+      <div class="body">Camiseta Azul Nike</div>
+      <div class="info">123456789 - Tamanho G</div>
+    </div>
   </div>
 </ion-content>

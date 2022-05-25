@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="back()" slot="start">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-buttons (click)="edit()" slot="end">
+      <ion-icon *ngIf="!scanner" name="barcode-outline"></ion-icon>
+      <ion-icon *ngIf="scanner" name="pencil-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Scanner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true" [style.--background]="scanner ? '#00000000' : '#fff'">
+  <div class="scan-box" *ngIf="scanner">
+    <div class="diode">
+      <div class="laser"></div>
+    </div>
+  </div>
+
+  <div *ngIf="!scanner" class="form">
+    <ion-item class="input-field">
+      <ion-input type="number" placeholder="Digite o código de barras"></ion-input>
+    </ion-item>
+
+    <button class="btn primary">Avançar</button>
+  </div>
+</ion-content>

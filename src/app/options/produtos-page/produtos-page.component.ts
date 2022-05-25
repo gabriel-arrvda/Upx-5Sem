@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { CameraModalComponent } from 'src/app/shared/camera-modal/camera-modal.component';
 
 @Component({
   selector: 'app-produtos-page',
@@ -9,7 +10,8 @@ import { NavController } from '@ionic/angular';
 export class ProdutosPageComponent implements OnInit {
 
   constructor(
-    private navController: NavController
+    private navController: NavController,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {}
@@ -17,4 +19,12 @@ export class ProdutosPageComponent implements OnInit {
   back(){
     this.navController.pop()
   }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: CameraModalComponent,
+    });
+    return await modal.present();
+  }
+
 }

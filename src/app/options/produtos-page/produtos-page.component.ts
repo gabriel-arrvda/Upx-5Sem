@@ -11,20 +11,12 @@ export class ProdutosPageComponent implements OnInit {
 
   constructor(
     private navController: NavController,
-    private modalController: ModalController
   ) { }
 
   ngOnInit() {}
 
   back(){
     this.navController.pop()
-  }
-
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: CameraModalComponent,
-    });
-    return await modal.present();
   }
 
 }

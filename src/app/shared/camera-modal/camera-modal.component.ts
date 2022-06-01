@@ -8,6 +8,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class CameraModalComponent implements OnInit {
 
+  codBarras
   scanner = true
 
   constructor(
@@ -22,6 +23,12 @@ export class CameraModalComponent implements OnInit {
 
   edit(){
     this.scanner = !this.scanner
+  }
+
+  emitValue(){
+    this.modalController.dismiss({
+      cod: this.codBarras
+    })
   }
 
 }

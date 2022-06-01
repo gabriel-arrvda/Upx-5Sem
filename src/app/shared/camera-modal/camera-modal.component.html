@@ -20,9 +20,9 @@
 
   <div *ngIf="!scanner" class="form">
     <ion-item class="input-field">
-      <ion-input type="number" placeholder="Digite o código de barras"></ion-input>
+      <ion-input [(ngModel)]="codBarras" type="number" placeholder="Digite o código de barras"></ion-input>
     </ion-item>
 
-    <button class="btn primary">Avançar</button>
+    <button (click)="emitValue()" class="btn primary">Avançar</button>
   </div>
 </ion-content>

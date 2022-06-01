@@ -1,0 +1,38 @@
+.form{
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 25px; 
+  gap: 15px;
+  
+  .input-field{
+    height: auto;
+    width: 100%;
+    --background: #ccc;
+    --color: rgb(27, 27, 27);
+    --border-radius: 20px;
+    --border-width: 1px;
+    --highlight-height: 0;
+  }
+
+  app-image-picker{
+    width: 100%;
+  }
+}
+
+.btn{
+  width: 60%;
+  height: 50px;
+  border-radius: 30px;
+  font-size: 12pt;
+  margin-top: 20px
+}
+
+.primary{
+  background: var(--ion-color-primary);
+  background: linear-gradient(45deg, var(--ion-color-primary-tint) 0%, var(--ion-color-primary-shade) 100%);
+  color: white;
+}

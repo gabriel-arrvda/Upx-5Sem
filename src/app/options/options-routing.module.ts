@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { OptionsPage } from './options.page';
+import { ProdutosFormComponent } from './produtos-form/produtos-form.component';
 import { ProdutosPageComponent } from './produtos-page/produtos-page.component';
 
 const routes: Routes = [
@@ -12,7 +13,11 @@ const routes: Routes = [
   {
     path: 'produtos',
     component: ProdutosPageComponent
-  }
+  },
+  {
+    path: 'produtos/create',
+    component: ProdutosFormComponent
+  },
 ];
 
 @NgModule({

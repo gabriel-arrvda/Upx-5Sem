@@ -5,12 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { UnixTimePipe } from './pipes/unix-time.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CameraModalComponent } from './camera-modal/camera-modal.component';
+import { ImagePickerComponent } from './image-picker/image-picker.component';
 
 @NgModule({
   declarations: [
     FilterPipe,
     UnixTimePipe,
-    CameraModalComponent
+    CameraModalComponent,
+    ImagePickerComponent
   ],
   imports: [
     IonicModule,
@@ -21,7 +23,8 @@ import { CameraModalComponent } from './camera-modal/camera-modal.component';
   exports: [
     FilterPipe,
     UnixTimePipe,
-    CameraModalComponent
+    CameraModalComponent,
+    ImagePickerComponent
   ],
   providers: [
   ],

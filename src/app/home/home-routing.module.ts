@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'movimentacoes',
+    loadChildren: () => import('./movimentacoes-form/movimentacoes-form.module').then( m => m.MovimentacoesFormPageModule)
   }
 ];
 

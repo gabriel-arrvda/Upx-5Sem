@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-icon style="color: transparent !important" name="arrow-back-outline"></ion-icon>
     </ion-buttons>
-    <ion-buttons slot="end">
+    <ion-buttons routerLink="movimentacoes" slot="end">
       <ion-icon name="add-outline"></ion-icon>
     </ion-buttons>
     <ion-title>Movimentação</ion-title>
@@ -11,22 +11,35 @@
 </ion-header>
 
 <ion-content>
-  <div class="card-data" style="border-color: #2dd36f">
-    <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
-      <div class="lead">ENTRADA DE PRODUTOS</div>
-      <div class="body">Camiseta Azul Nike</div>
-      <div class="info">123456789</div>
+  <ng-container *ngIf="movimentacoes$ | async; let movimentacoes; else noData">
+    <ng-container *ngIf="movimentacoes.length > 0; else noData">
+      <ng-container *ngFor="let m of movimentacoes; trackBy: trackById">
+
+        <div *ngIf="!m.isSaida" class="card-data" style="border-color: #2dd36f">
+          <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
+            <div class="lead">ENTRADA DE PRODUTO</div>
+            <div class="body">{{m.produtos[0].nome}}</div>
+            <div class="info">{{m.produtos[0].codBarras}}</div>
+          </div>
+        </div>
+
+        <div *ngIf="m.isSaida" class="card-data" style="border-color: #eb445a">
+          <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
+            <div class="body">
+              SAÍDA DE {{m.produtos.length}} PRODUTOS
+            </div>
+            <div class="info">
+              <span *ngFor="let p of m.produtos">{{p.codBarras}} - {{p.nome}}<br></span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #noData>
+    <div class="no-data-container">
+      <p>Nenhuma Movimentação Encontrada</p>
     </div>
-  </div>
-  <div class="card-data" style="border-color: #eb445a">
-    <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
-      <div class="body">
-        SAÍDA DE 2 PRODUTOS
-      </div>
-      <div class="info">
-        <span>123456 - Camiseta Azul Nike<br></span>
-        <span>123456 - Camiseta Azul Nike<br></span>
-      </div>
-    </div>
-  </div>
+  </ng-template>
 </ion-content>

@@ -11,20 +11,25 @@
 </ion-header>
 
 <ion-content>
-  <div class="card-data">
-    <div class="col" style="width: 25% !important;"><img src="../../../assets/no-image.jpg" alt=""></div>
-    <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
-      <div class="lead">CAMISETA</div>
-      <div class="body">Camiseta Azul Nike</div>
-      <div class="info">123456789 - Tamanho G</div>
+  <ng-container *ngIf="produtos$ | async; let produtos; else noData">
+    <ng-container *ngIf="produtos.length > 0; else noData">
+      <div *ngFor="let p of produtos; trackBy: trackById" class="card-data">
+        <div class="col" style="width: 25% !important;">
+          <img *ngIf="!p.foto" src="../../../assets/no-image.jpg" alt="">
+          <img *ngIf="p.foto" [src]="p.foto" alt="">
+        </div>
+        <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
+          <div class="lead">{{p.categoria | uppercase}}</div>
+          <div class="body">{{p.nome}}</div>
+          <div class="info">{{p.codBarras}} - {{p.info}}</div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #noData>
+    <div class="no-data-container">
+      <p>Nenhum Produto Encontrado</p>
     </div>
-  </div>
-  <div class="card-data">
-    <div class="col" style="width: 25% !important;"><img src="../../../assets/no-image.jpg" alt=""></div>
-    <div class="col" style="flex-direction: column; align-items: flex-start; height: 100%;">
-      <div class="lead">CAMISETA</div>
-      <div class="body">Camiseta Azul Nike</div>
-      <div class="info">123456789 - Tamanho G</div>
-    </div>
-  </div>
+  </ng-template>
 </ion-content>

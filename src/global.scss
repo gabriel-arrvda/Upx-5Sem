@@ -48,3 +48,35 @@ ion-header{
 ion-content{
     --padding-top: 3vh
 }
+
+.no-data-container {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    background-color: #ccc;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 10px;
+
+    height: 7.5vh;
+
+    strong {
+        font-size: 20px;
+        line-height: 26px;
+    }
+      
+    p {
+        text-align: center;
+        font-size: 16px;
+        line-height: 22px;
+        align-self: center;
+      
+        color: var(--ion-color-primary);
+      
+        margin: 0;
+    }
+}

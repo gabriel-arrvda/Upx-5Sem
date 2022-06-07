@@ -11,9 +11,16 @@
 </ion-header>
 
 <ion-content>
+  <div class="form">
+    <ion-item class="input-field">
+      <ion-icon name="search-outline"></ion-icon>&nbsp;&nbsp;
+      <ion-input placeholder="Insira o nome ou o código de barras" [(ngModel)]="listFilter"></ion-input>
+    </ion-item>
+  </div>
+
   <ng-container *ngIf="produtos$ | async; let produtos; else noData">
     <ng-container *ngIf="produtos.length > 0; else noData">
-      <div *ngFor="let p of produtos; trackBy: trackById" class="card-data">
+      <div *ngFor="let p of produtos | filter:listFilter; trackBy: trackById" class="card-data">
         <div class="col" style="width: 25% !important;">
           <img *ngIf="!p.foto" src="../../../assets/no-image.jpg" alt="">
           <img *ngIf="p.foto" [src]="p.foto" alt="">

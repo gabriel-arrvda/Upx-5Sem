@@ -37,7 +37,7 @@
 
       <app-image-picker (imagePick)="onFilePicked($event)" [showPreview]="true" [selectedImage]="form?.value['foto']" class="formLayout"></app-image-picker>
       
-      <button (click)="save()" class="btn primary">Salvar</button>
+      <button [disabled]="!form?.valid" (click)="save()" class="btn primary">Salvar</button>
     </div>
   </form>
 </ion-content>

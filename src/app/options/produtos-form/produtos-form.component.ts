@@ -69,25 +69,26 @@ export class ProdutosFormComponent implements OnInit {
   }
 
   save(){
-    this.visualService.genericLoading('Salvando...')
-
-    this.fbService.uploadFile(this.fileBase64).then(url => {
-      if(url) this.form.get('foto').setValue(url)
-
-      this.fbService.saveProduto(this.form.getRawValue()).then(() => {
+    this.visualService.genericLoading('Salvando...').then( () => {
+      this.fbService.uploadFile(this.fileBase64).then(url => {
+        if(url) this.form.get('foto').setValue(url)
+  
+        this.fbService.saveProduto(this.form.getRawValue()).then(() => {
+          this.visualService.closeLoading()
+          this.visualService.genericToast("Produto salvo com sucesso")
+          this.back()
+        }).catch(error => {
+          console.error(error)
+          this.visualService.closeLoading()
+          this.visualService.genericToast(error)
+        })
+  
+      }).catch(err => {
         this.visualService.closeLoading()
-        this.visualService.genericToast("Produto salvo com sucesso")
-        this.back()
-      }).catch(error => {
-        console.error(error)
-        this.visualService.closeLoading()
-        this.visualService.genericToast(error)
+        this.visualService.genericToast("Erro ao salvar imagem")
       })
-
-    }).catch(err => {
-      this.visualService.closeLoading()
-      this.visualService.genericToast("Erro ao salvar imagem")
     })
+
   }
 
 }

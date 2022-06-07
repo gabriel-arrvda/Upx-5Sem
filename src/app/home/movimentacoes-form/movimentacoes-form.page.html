@@ -11,5 +11,19 @@
 </ion-header>
 
 <ion-content>
+  <div class="container">
+    <button (click)="presentModal()" class="btn-open primary">Selecionar Produto</button>
 
+    <div class="list">
+      <ng-container *ngIf="produtos.length > 0; else noData">
+        <div *ngFor="let p of produtos" class="list-item">{{p.codBarras}} - {{p.nome}}</div>
+      </ng-container>
+
+      <ng-template #noData>
+        <div class="list-item">Nenhum produto selecionado ainda</div>
+      </ng-template>
+    </div>
+
+    <button [disabled]="produtos.length === 0" (click)="save()" class="btn-save primary">Salvar</button>
+  </div>
 </ion-content>

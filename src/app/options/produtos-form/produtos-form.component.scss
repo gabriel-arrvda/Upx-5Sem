@@ -36,3 +36,8 @@
   background: linear-gradient(45deg, var(--ion-color-primary-tint) 0%, var(--ion-color-primary-shade) 100%);
   color: white;
 }
+
+.primary:disabled{
+  background: var(--ion-color-medium) !important;
+  color: var(--ion-color-dark);
+}

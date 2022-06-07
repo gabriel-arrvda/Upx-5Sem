@@ -60,3 +60,24 @@
         font-weight: 600;
     }
 }
+
+.form{
+    width: 100vw;
+    padding: 0 20px 10px 20px; 
+
+    .input-field{
+        height: auto;
+        width: 100%;
+        --background: #ccc;
+        --color: rgb(27, 27, 27);
+        --border-radius: 20px;
+        --border-width: 1px;
+        --highlight-height: 0;
+    }
+
+    .item-has-focus{
+        outline: none !important;
+        border: none !important;
+        caret-color: transparent !important;
+    }
+}

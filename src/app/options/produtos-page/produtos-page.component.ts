@@ -13,6 +13,8 @@ export class ProdutosPageComponent implements OnInit {
 
   produtos$: Observable<any[]>
 
+  listFilter = ''
+
   constructor(
     private navController: NavController,
     private fbService: FirebaseService,

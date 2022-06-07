@@ -29,7 +29,7 @@
 
 ion-header{
     ion-toolbar{
-        --background: #ccc;
+        --background: rgb(171, 171, 171);
         padding: 2vh 5vw;
         text-align: center;
         color: var(--ion-color-primary);
@@ -46,7 +46,8 @@ ion-header{
 }
 
 ion-content{
-    --padding-top: 3vh
+    --padding-top: 3vh;
+    --padding-bottom: 8.5vh
 }
 
 .no-data-container {

@@ -2,7 +2,6 @@
   <ion-router-outlet></ion-router-outlet>
   
   <ion-footer>
-    <div class="cut-top"></div>
   
     <div class="cut-btn">
       <div class="btn-back">
@@ -13,7 +12,7 @@
     </div>
   
     <div class="btn-wrapper">
-      <div class="nav-btn" routerLink="/home" routerLinkActive #rtl="routerLinkActive">
+      <div class="nav-btn btn-left" routerLink="/home" routerLinkActive #rtl="routerLinkActive">
         <ng-container *ngIf="rtl.isActive">
           <ion-icon name="home"></ion-icon>
         </ng-container>
@@ -23,7 +22,7 @@
         </ng-container>
       </div>
   
-      <div class="nav-btn" routerLink="/configs" routerLinkActive #rtl2="routerLinkActive">
+      <div class="nav-btn btn-right" routerLink="/configs" routerLinkActive #rtl2="routerLinkActive">
         <ng-container *ngIf="rtl2.isActive">
           <ion-icon name="documents"></ion-icon>
         </ng-container>

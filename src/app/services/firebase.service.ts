@@ -18,7 +18,8 @@ export class FirebaseService{
     async saveProduto(produto){
         let produtosQuery = query<any>(
             collection(this.afs, 'produtos') as CollectionReference<any>,
-            where('codBarras', '==', produto.codBarras)
+            where('codBarras', '==', produto.codBarras),
+            where('dataExcluido', '==', null)
         )
 
         let produtosCod = await getDocs(produtosQuery)

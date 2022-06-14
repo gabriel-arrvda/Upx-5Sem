@@ -1,0 +1,6 @@
+{
+	"appId": "app.praca.estoque",
+	"appName": "A Praça - Estoque",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

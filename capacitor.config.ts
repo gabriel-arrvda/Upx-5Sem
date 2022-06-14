@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'Upx-5Sem',
+  appId: 'app.praca.estoque',
+  appName: 'A Praça - Estoque',
   webDir: 'www',
   bundledWebRuntime: false
 };

@@ -25,7 +25,8 @@ export class CameraComponent implements OnInit {
   }
 
   back() {
-    this.navController.back()
+    this.stopScanner()
+    this.navController.pop()
   }
 
   async startScanner() {
@@ -103,8 +104,13 @@ export class CameraComponent implements OnInit {
   }
 
   emitValue(){
+    this.stopScanner()
     this.visualService.cameraOpen = of(false)
     this.navController.navigateForward(['/','configs', 'produtos', 'create', this.codBarras])
+  }
+
+  ionViewWillLeave(){
+    this.stopScanner()
   }
 
 }

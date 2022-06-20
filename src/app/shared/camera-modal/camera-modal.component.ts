@@ -22,6 +22,7 @@ export class CameraModalComponent implements OnInit {
   }
 
   back() {
+    this.stopScanner()
     this.modalController.dismiss()
   }
 
@@ -102,6 +103,10 @@ export class CameraModalComponent implements OnInit {
     this.modalController.dismiss({
       cod: this.codBarras
     })
+  }
+
+  ionViewWillLeave(){
+    this.stopScanner()
   }
 
 }

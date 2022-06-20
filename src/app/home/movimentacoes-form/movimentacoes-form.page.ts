@@ -4,6 +4,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 import { VisualService } from 'src/app/services/visual.service';
 import { CameraModalComponent } from 'src/app/shared/camera-modal/camera-modal.component';
 import { of } from 'rxjs'
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 
 @Component({
   selector: 'app-movimentacoes-form',
@@ -50,6 +51,9 @@ export class MovimentacoesFormPage implements OnInit {
     await modal.present();
 
     const { data } = await modal.onWillDismiss()
+
+    BarcodeScanner.showBackground();
+    BarcodeScanner.stopScan();
     
     if(data){
       this.cameraOpen = false
@@ -78,6 +82,11 @@ export class MovimentacoesFormPage implements OnInit {
   back(){
     this.navController.pop()
     this.produtos = []
+  }
+
+  ionViewWillLeave(){
+    BarcodeScanner.showBackground();
+    BarcodeScanner.stopScan();
   }
 
 }

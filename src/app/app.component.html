@@ -1,7 +1,7 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
   
-  <ion-footer>
+  <ion-footer *ngIf="!(cameraOpen | async)">
   
     <div class="cut-btn">
       <div class="btn-back">
@@ -22,7 +22,7 @@
         </ng-container>
       </div>
   
-      <div class="nav-btn btn-right" routerLink="/configs" routerLinkActive #rtl2="routerLinkActive">
+      <div class="nav-btn btn-right" routerLink="/configs/produtos" routerLinkActive #rtl2="routerLinkActive">
         <ng-container *ngIf="rtl2.isActive">
           <ion-icon name="documents"></ion-icon>
         </ng-container>

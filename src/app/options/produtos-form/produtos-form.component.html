@@ -15,12 +15,12 @@
     <div class="form">
       <ion-item class="input-field">
         <ion-icon name="barcode-outline"></ion-icon>&nbsp;&nbsp;
-        <ion-input formControlName="codBarras" type="number"></ion-input>
+        <ion-input formControlName="codBarras"></ion-input>
       </ion-item>
 
       <ion-item class="input-field">
         <ion-select placeholder="Tipo de Roupa" okText="Confirmar" cancelText="Voltar" formControlName="categoria" 
-          [interfaceOptions]="{header: 'Selecione o tipo', translucent: true}">
+          [interfaceOptions]="{header: 'Selecione o tipo', translucent: true, cssClass: 'bg-white'}">
             <ion-select-option [value]="'camiseta'">Camiseta</ion-select-option>
             <ion-select-option [value]="'vestido'">Vestido</ion-select-option>
             <ion-select-option [value]="'calça'">Calça</ion-select-option>

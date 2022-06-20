@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
+import { of } from 'rxjs';
 
 @Injectable({ 
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { AlertController, LoadingController, ToastController } from '@ionic/angu
 export class VisualService {
 
   public isPresented: boolean = false;
+  public cameraOpen = of(false)
 
   constructor(
     private toastController: ToastController,
@@ -26,6 +28,7 @@ export class VisualService {
   async genericLoading(msg?) {
     const loading = await this.loadingController.create({
       message: msg ? msg : 'Aguarde...',
+      cssClass: 'bg-white',
     });
 
     this.isPresented = true
@@ -41,6 +44,7 @@ export class VisualService {
     const alert = await this.alertController.create({
       header: header,
       message: msg,
+      cssClass: 'bg-white',
       buttons: [
         {
           text: 'Cancelar',

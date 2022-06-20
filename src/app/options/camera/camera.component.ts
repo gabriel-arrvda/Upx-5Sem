@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, ModalController, NavController } from '@ionic/angular';
+import { VisualService } from 'src/app/services/visual.service';
+import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-camera-modal',
-  templateUrl: './camera-modal.component.html',
-  styleUrls: ['./camera-modal.component.scss'],
+  selector: 'app-camera',
+  templateUrl: './camera.component.html',
+  styleUrls: ['./camera.component.scss'],
 })
-export class CameraModalComponent implements OnInit {
+export class CameraComponent implements OnInit {
 
   codBarras
   scanner = false
 
   constructor(
-    private modalController: ModalController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private navController: NavController,
+    private visualService: VisualService
   ) { }
 
   ngOnInit() {
@@ -22,10 +25,11 @@ export class CameraModalComponent implements OnInit {
   }
 
   back() {
-    this.modalController.dismiss()
+    this.navController.back()
   }
 
   async startScanner() {
+    this.visualService.cameraOpen = of(true)
     const allowed = await this.checkPermission()
     if ( allowed ) {      
       BarcodeScanner.hideBackground();
@@ -37,12 +41,11 @@ export class CameraModalComponent implements OnInit {
 
       if ( result.hasContent ) {
         this.scanner = false;
-
+        
         this.stopScanner()
-
+        
         try {
           this.codBarras = result.content
-          
           this.emitValue()
         } catch(e){
           this.presentError()
@@ -53,7 +56,7 @@ export class CameraModalComponent implements OnInit {
 
   async presentError() {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
+      cssClass: 'bg-white',
       header: 'ERRO',
       message: 'Não foi possível ler o código de barras',
       buttons: ['OK']
@@ -70,6 +73,7 @@ export class CameraModalComponent implements OnInit {
       } else if ( status.denied ) {
         const alert = await this.alertController.create({
           header: 'Erro nas Permissões',
+          cssClass: 'bg-white',
           message: 'Por favor habilite as permissões de uso de câmera nas Preferências do seu celular',
           buttons: [{
             text: 'Cancelar',
@@ -99,9 +103,8 @@ export class CameraModalComponent implements OnInit {
   }
 
   emitValue(){
-    this.modalController.dismiss({
-      cod: this.codBarras
-    })
+    this.visualService.cameraOpen = of(false)
+    this.navController.navigateForward(['/','configs', 'produtos', 'create', this.codBarras])
   }
 
 }

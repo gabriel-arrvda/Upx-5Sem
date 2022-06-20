@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { VisualService } from 'src/app/services/visual.service';
-import { CameraModalComponent } from 'src/app/shared/camera-modal/camera-modal.component';
+import { switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-produtos-form',
@@ -21,7 +23,8 @@ export class ProdutosFormComponent implements OnInit {
     private navController: NavController,
     private formBuilder: FormBuilder,
     private fbService: FirebaseService,
-    private visualService: VisualService 
+    private visualService: VisualService,
+    private route: ActivatedRoute, 
   ) { }
 
   ngOnInit() {
@@ -29,7 +32,19 @@ export class ProdutosFormComponent implements OnInit {
   }
   
   ionViewDidEnter() {
-    this.presentModal()
+    this.route.paramMap.pipe(
+      switchMap( paramMap => {
+        if ( paramMap.has('id') ) {
+          return of(paramMap.get('id'))
+        } 
+        
+        return of(undefined)
+      })
+    ).subscribe( cod => {
+      this.codBarras = cod
+      this.form.get('codBarras').setValue(cod)
+      this.form.get('codBarras').disable()
+    })
   }
 
   createForm() {
@@ -42,26 +57,8 @@ export class ProdutosFormComponent implements OnInit {
     })
   }
 
-  async presentModal() {
-    const modal = await this.modalController.create({
-      component: CameraModalComponent,
-    });
-    
-    await modal.present();
-
-    const { data } = await modal.onWillDismiss()
-    
-    if(data){
-      this.codBarras = data.cod
-      this.form.get('codBarras').setValue(data.cod)
-      this.form.get('codBarras').disable()
-    }
-
-    return
-  }
-
   back(){
-    this.navController.pop()
+    this.navController.navigateBack('/configs/produtos')
   }
 
   onFilePicked(file) {

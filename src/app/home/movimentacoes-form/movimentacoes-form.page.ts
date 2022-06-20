@@ -3,6 +3,7 @@ import { ModalController, NavController } from '@ionic/angular';
 import { FirebaseService } from 'src/app/services/firebase.service';
 import { VisualService } from 'src/app/services/visual.service';
 import { CameraModalComponent } from 'src/app/shared/camera-modal/camera-modal.component';
+import { of } from 'rxjs'
 
 @Component({
   selector: 'app-movimentacoes-form',
@@ -10,6 +11,7 @@ import { CameraModalComponent } from 'src/app/shared/camera-modal/camera-modal.c
   styleUrls: ['./movimentacoes-form.page.scss'],
 })
 export class MovimentacoesFormPage implements OnInit {
+  cameraOpen = false
 
   produtos: any[] = []
 
@@ -38,6 +40,9 @@ export class MovimentacoesFormPage implements OnInit {
   }
 
   async presentModal() {
+    this.cameraOpen = true
+    this.visualService.cameraOpen = of(true)
+
     const modal = await this.modalController.create({
       component: CameraModalComponent,
     });
@@ -47,6 +52,9 @@ export class MovimentacoesFormPage implements OnInit {
     const { data } = await modal.onWillDismiss()
     
     if(data){
+      this.cameraOpen = false
+      this.visualService.cameraOpen = of(false)
+      
       this.visualService.genericLoading().then( () => {
         this.fbService.getProduto(data.cod).then((produto) => {
           this.visualService.closeLoading()

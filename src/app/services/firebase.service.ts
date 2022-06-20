@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
-import { collection, collectionChanges, collectionData, CollectionReference, doc, Firestore, query, setDoc, where, getDocs,writeBatch } from "@angular/fire/firestore";
+import { collection, collectionChanges, collectionData, CollectionReference, doc, Firestore, 
+    query, where, getDocs,writeBatch } from "@angular/fire/firestore";
 import { Storage, ref, uploadBytesResumable, getDownloadURL } from '@angular/fire/storage';
 import { orderBy } from "firebase/firestore";
 import { first, switchMap, take } from 'rxjs/operators';
@@ -33,7 +34,7 @@ export class FirebaseService{
             dataExcluido: null,
             dataCadastrado: new Date().getTime() / 1000,
             nome: produto.nome,
-            codBarras: produto.codBarras,
+            codBarras: ''+produto.codBarras,
             categoria: produto.categoria,
             info: produto.info,
             foto: produto.foto,

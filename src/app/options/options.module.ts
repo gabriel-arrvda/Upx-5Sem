@@ -10,6 +10,7 @@ import { OptionsPage } from './options.page';
 import { ProdutosPageComponent } from './produtos-page/produtos-page.component';
 import { ProdutosFormComponent } from './produtos-form/produtos-form.component';
 import { SharedModule } from '../shared/shared.module';
+import { CameraComponent } from './camera/camera.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     OptionsPage, 
     ProdutosFormComponent,
-    ProdutosPageComponent
+    ProdutosPageComponent,
+    CameraComponent
   ]
 })
 export class OptionsPageModule {}

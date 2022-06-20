@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CameraComponent } from './camera/camera.component';
 
 import { OptionsPage } from './options.page';
 import { ProdutosFormComponent } from './produtos-form/produtos-form.component';
@@ -15,7 +16,11 @@ const routes: Routes = [
     component: ProdutosPageComponent
   },
   {
-    path: 'produtos/create',
+    path: 'produtos/camera',
+    component: CameraComponent
+  },
+  {
+    path: 'produtos/create/:id',
     component: ProdutosFormComponent
   },
 ];

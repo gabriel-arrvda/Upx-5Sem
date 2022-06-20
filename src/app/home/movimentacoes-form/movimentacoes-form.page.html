@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
+  <div class="container" *ngIf="!cameraOpen">
     <button (click)="presentModal()" class="btn-open primary">Selecionar Produto</button>
 
     <div class="list">

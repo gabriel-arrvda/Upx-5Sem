@@ -89,4 +89,9 @@ export class MovimentacoesFormPage implements OnInit {
     BarcodeScanner.stopScan();
   }
 
+  ionViewWillEnter(){
+    BarcodeScanner.showBackground();
+    BarcodeScanner.stopScan()
+  }
+
 }
